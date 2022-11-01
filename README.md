@@ -10,10 +10,6 @@ This is a practice project for using SQL Databases.
 
 - PostgreSQL
 
-## Screenshots
-
-![](media/dbsc.jpg)
-
 ## Authors
 
 👤 **Author1**
