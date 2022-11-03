@@ -41,3 +41,40 @@ SELECT COUNT(escape_attempts), neutered FROM animals GROUP BY neutered;
 SELECT AVG(escape_attempts), species FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+SELECT name, date_of_birth, escape_attempts,neutered, weight_kg, full_name AS owner 
+FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Melody Pond';
+
+SELECT animals.name, date_of_birth, escape_attempts,neutered, weight_kg, species.name AS type
+FROM animals
+JOIN species ON animals.species_id = species.id
+WHERE species.name = 'Pokemon';
+
+SELECT ALL full_name AS owner, name as animals
+FROM owners
+LEFT JOIN animals ON owners.id = animals.owner_id
+WHERE owners.full_name LIKE '%%';
+
+SELECT species.name as species, COUNT(species_id)
+FROM species
+JOIN animals ON species.id = animals.species_id
+GROUP BY species.name;
+
+SELECT owners.full_name AS owner, animals.name AS Digimons
+FROM animals
+RIGHT JOIN owners ON owners.id = animals.owner_id
+JOIN species ON animals.species_id = species.id
+WHERE species.name = 'Digimon' AND owners.full_name = 'Jennifer Orwell';
+
+SELECT owners.full_name AS owner, animals.name AS "animals haven't tried to escape"
+FROM animals
+JOIN owners ON animals.owner_id = owners.id
+WHERE animals.escape_attempts = 0 AND owners.full_name LIKE '%Dean%';
+
+SELECT owners.full_name, COUNT(animals.id) AS "count of animals owned"
+FROM owners
+JOIN animals ON owner_id = owners.id
+GROUP BY owners.full_name
+ORDER BY "count of animals owned" DESC LIMIT 1;
