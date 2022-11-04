@@ -30,3 +30,32 @@ ALTER TABLE animals
 DROP COLUMN species,
 ADD COLUMN species_id INT REFERENCES species(id),
 ADD COLUMN owner_id INT REFERENCES owners(id);
+
+CREATE TABLE vets (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    name varchar(100),
+    age INT,
+    date_of_graduation date,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE specializations (
+    vet_name varchar(100),
+    speciality varchar(100)
+);
+
+CREATE TABLE visits (
+    animal_name varchar(100),
+    vet_name varchar(100),
+    date date
+);
+
+BEGIN;
+    ALTER TABLE specializations
+    ADD COLUMN speciality_id INT;
+
+    UPDATE specializations
+    SET speciality_id = species.id
+    FROM species
+    WHERE specializations.speciality = species.name;
+COMMIT;
