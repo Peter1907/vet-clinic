@@ -10,6 +10,10 @@ This is a practice project for using SQL Databases.
 
 - PostgreSQL
 
+## Diagram
+
+![Alt text](media/diagram.jpeg)
+
 ## Authors
 
 👤 **Author1**
@@ -18,6 +22,11 @@ This is a practice project for using SQL Databases.
 - Twitter: [@Peter_Beshara_](https://twitter.com/Peter_Beshara_)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/peter-beshara-b33681241/)
 
+👤 **Author2**
+
+- GitHub: [@MarcoAurelioAntonio](https://github.com/MarcoAurelioAntonio)
+- Twitter: [@gustavoporcilio](https://twitter.com/gustavoporcilio)
+- LinkedIn: [Gustavo Porcilio](https://www.linkedin.com/in/gustavo-porcilio-4496a223a/)
 
 ## 🤝 Contributing
 
